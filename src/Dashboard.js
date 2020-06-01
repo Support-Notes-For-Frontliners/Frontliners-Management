@@ -140,7 +140,6 @@ export default function Dashboard(props) {
           <>
             {firebase.auth.currentUser == null ? (
               <>
-                {console.log(firebase.auth.currentUser)}
                 <Redirect to="/login" />
               </>
             ) : (
@@ -172,7 +171,12 @@ export default function Dashboard(props) {
                     >
                       Dashboard
                     </Typography>
-                    <IconButton color="inherit">
+                    <IconButton
+                      color="inherit"
+                      onClick={() => {
+                        firebase.auth.signOut();
+                      }}
+                    >
                       <Badge badgeContent={4} color="secondary">
                         <NotificationsIcon />
                       </Badge>

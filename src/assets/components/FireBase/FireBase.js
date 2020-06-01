@@ -1,7 +1,6 @@
 import app from "firebase/app";
 import "firebase/database";
 import "firebase/auth";
-
 //init firebase
 require("dotenv").config();
 
@@ -15,14 +14,11 @@ const firebaseConfig = {
   appId: process.env.REACT_APP_APP_ID,
   measurementId: process.env.REACT_APP_MEASUREMENT,
 };
-console.log(firebaseConfig);
 class FireBase {
   constructor() {
     app.initializeApp(firebaseConfig);
-
     this.db = app.database();
     this.auth = app.auth();
   }
 }
-
 export default FireBase;

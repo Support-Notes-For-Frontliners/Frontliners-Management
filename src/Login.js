@@ -51,9 +51,6 @@ export default function Login(props) {
     console.log(firebase);
     firebase.auth
       .signInWithEmailAndPassword(target.email.value, target.password.value)
-      .then(() => {
-        props.history.push("/dashboard");
-      })
       .catch(function (error) {
         console.log(error);
         alert(
@@ -68,7 +65,7 @@ export default function Login(props) {
         {(firebase) => (
           <Center>
             {firebase.auth.currentUser ? (
-              <Redirect to="/dashboard" />
+              <Redirect push to="/dashboard" />
             ) : (
               <Paper elevation={10} className={classes.paper}>
                 <form
