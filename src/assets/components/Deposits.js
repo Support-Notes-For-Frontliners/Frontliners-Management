@@ -49,15 +49,12 @@ export default function Deposits(props) {
         color="textSecondary"
         component="p"
         variant="h4"
-        // className={classes.depositContext}
         style={opacity()}
       >
         {orgStats == null ? "" : orgStats.sent_count} Sent
       </Typography>
       <Typography
         color="textSecondary"
-        // component="p"
-        // variant="h4"
         className={classes.depositContext}
         style={opacity()}
       >

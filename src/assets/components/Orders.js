@@ -66,7 +66,13 @@ export default function Orders(props) {
       .equalTo(approval)
       .limitToLast(10);
   }
-
+  function opacity() {
+    if (Object.keys(noteData).length === 0) {
+      return { opacity: "0" };
+    } else {
+      return { opacity: "1", transition: "all 1s ease" };
+    }
+  }
   function getData(ref) {
     ref.on("value", gotStatData, errData);
   }
@@ -96,7 +102,6 @@ export default function Orders(props) {
         <TableHead>
           <TableRow>
             <TableCell>Where To</TableCell>
-            {/* <TableCell>Approved</TableCell> */}
             <TableCell>
               <TableSortLabel
                 active={true}
@@ -120,7 +125,7 @@ export default function Orders(props) {
             <TableCell align="right">Note</TableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody style={opacity()}>
           {Object.keys(
             Object.filter(noteData, (approve) => approved == approve.approved)
           )
