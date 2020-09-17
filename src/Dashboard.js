@@ -32,8 +32,8 @@ function Copyright() {
   return (
     <Typography variant="body2" color="textSecondary" align="center">
       {"Copyright © "}
-      <Link color="inherit" href="https://material-ui.com/">
-        Your Website
+      <Link color="inherit" href="https://notesforfrontliners.org">
+        Notes For Frontliners
       </Link>{" "}
       {new Date().getFullYear()}
       {"."}
@@ -118,7 +118,7 @@ const useStyles = makeStyles((theme) => ({
     flexDirection: "column",
   },
   fixedHeight: {
-    height: 240,
+    height: 200,
   },
 }));
 
@@ -210,19 +210,19 @@ export default function Dashboard(props) {
                       {/* Chart */}
                       <Grid item xs={12} md={8} lg={9}>
                         <Paper className={fixedHeightPaper}>
-                          <Chart />
+                          {/* <Chart /> */}
                         </Paper>
                       </Grid>
                       {/* Recent Deposits */}
                       <Grid item xs={12} md={4} lg={3}>
                         <Paper className={fixedHeightPaper}>
-                          <Deposits />
+                          <Deposits firebase={firebase} />
                         </Paper>
                       </Grid>
                       {/* Recent Orders */}
                       <Grid item xs={12}>
                         <Paper className={classes.paper}>
-                          <Orders />
+                          <Orders firebase={firebase} />
                         </Paper>
                       </Grid>
                     </Grid>

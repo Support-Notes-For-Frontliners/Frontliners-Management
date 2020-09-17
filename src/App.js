@@ -15,9 +15,12 @@ import app from "firebase/app";
 function App() {
   const [user, setUser] = React.useState(null);
   const [redirect, setRedirect] = React.useState(null);
-  setTimeout(function () {
-    setRedirect(<Redirect to="/login" />);
-  }, 1000);
+  React.useEffect(() => {
+    setTimeout(() => {
+      setRedirect(<Redirect to="/login" />);
+    }, 1000);
+  }, []);
+
   app.auth().onAuthStateChanged(function (user) {
     setUser(user);
   });
@@ -27,15 +30,15 @@ function App() {
         <Route component={Note} path="/note" />
         <Route component={About} path = "/about" />
         <Route component={Gallery} path = "/gallery"/> */}
-      <Route component={Login} path="/login" />
+      <Route component={Login} path="/login" exact={true} />
       {user == null ? (
         <div>
-          Attempting authentication...
+          {/* Attempting authentication... */}
           {redirect}
         </div>
       ) : (
         <>
-          <Route component={Dashboard} path="/dashboard" />
+          <Route component={Dashboard} path="/dashboard" exact={true} />
         </>
       )}
     </Switch>
