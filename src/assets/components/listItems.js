@@ -9,6 +9,24 @@ import PeopleIcon from '@material-ui/icons/People';
 import BarChartIcon from '@material-ui/icons/BarChart';
 import LayersIcon from '@material-ui/icons/Layers';
 import AssignmentIcon from '@material-ui/icons/Assignment';
+import PDF_Generator from "./PDF_Generator/Document"
+import { Link } from 'react-router-dom';
+
+function ListItemLink(props) {
+  const { icon, primary, to } = props;
+
+  const CustomLink = props => <Link to={to} {...props} />;
+
+  return (
+    <li>
+      <ListItem button component={CustomLink}>
+        <ListItemIcon>{icon}</ListItemIcon>
+        <ListItemText primary={primary} />
+      </ListItem>
+    </li>
+  );
+}
+
 
 export const mainListItems = (
   <div>
@@ -36,12 +54,13 @@ export const mainListItems = (
       </ListItemIcon>
       <ListItemText primary="Reports" />
     </ListItem>
-    <ListItem button>
-      <ListItemIcon>
-        <LayersIcon />
-      </ListItemIcon>
-      <ListItemText primary="Integrations" />
-    </ListItem>
+      <ListItem button>
+        <ListItemIcon>
+          <LayersIcon />
+        </ListItemIcon>
+        <ListItemText primary="PDF Generator" />
+      </ListItem>
+
   </div>
 );
 
@@ -60,11 +79,13 @@ export const secondaryListItems = (
       </ListItemIcon>
       <ListItemText primary="Last quarter" />
     </ListItem>
-    <ListItem button>
+    <a href="/pdf_generator">
+    <ListItemLink button>
       <ListItemIcon>
         <AssignmentIcon />
       </ListItemIcon>
       <ListItemText primary="Year-end sale" />
-    </ListItem>
+    </ListItemLink>
+    </a>
   </div>
 );

@@ -7,6 +7,7 @@ import Dashboard from "./Dashboard.js";
 import FirebaseContext from "./assets/components/FireBase/FireBaseContext";
 import "firebase/auth";
 import app from "firebase/app";
+import PDF_Generator from "./assets/components/PDF_Generator/Document.js"
 // import About from "./About.js"
 // import Home from "./Home"
 // import Note from "./Note"
@@ -38,6 +39,7 @@ function App() {
         </div>
       ) : (
         <>
+          <Route component={PDF_Generator} path="/pdf_generator" exact={true} />
           <Route component={Dashboard} path="/dashboard" exact={true} />
         </>
       )}
